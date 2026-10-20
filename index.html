@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muzammal Hassan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Muzammal Hassan, Solution Architect for telecom BSS, dealer platforms, e-commerce and payment integrations. Islamabad, Pakistan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column; hero carries a live system diagram (channels → integration → BSS); work as a dated deployment log. */
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#13201D; --muted:#56635F; --line:#D6DDDA;
+  --accent:#0E6B5C; --accent-soft:#DCEDE8; --signal:#C2621B;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1614; --surface:#16201D; --ink:#E6EEEB; --muted:#9AA9A4; --line:#2A3632;
+  --accent:#4FC1A8; --accent-soft:#183A33; --signal:#E89A5C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1614; --surface:#16201D; --ink:#E6EEEB; --muted:#9AA9A4; --line:#2A3632;
+  --accent:#4FC1A8; --accent-soft:#183A33; --signal:#E89A5C; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f-body);margin:0}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
+.label{font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Top bar */
+header.top{padding-block:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.mark{font:500 14px var(--f-mono);color:var(--ink);text-decoration:none}
+.mark b{color:var(--accent)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--ink)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-block:48px 56px}
+.hero>*{min-width:0}
+.hero h1{font-size:clamp(40px,6vw,64px);font-weight:700;letter-spacing:-.02em}
+.hero h1 span{color:var(--accent)}
+.lede{font-size:19px;color:var(--muted);max-width:34em;margin:20px 0 0}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;padding:0;list-style:none}
+.facts li{font:400 13px/1 var(--f-mono);border:1px solid var(--line);padding:8px 10px;border-radius:4px;color:var(--ink);background:var(--surface)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{font:600 15px var(--f-body);padding:11px 18px;border-radius:6px;text-decoration:none;border:1px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn.ghost{color:var(--accent)}
+
+/* Diagram */
+.diagram{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.diagram svg{width:100%;height:auto;display:block}
+.diagram text{font-family:var(--f-mono);font-size:11px;fill:var(--ink)}
+.diagram .cap{fill:var(--muted);font-size:10px;letter-spacing:.08em}
+.node{fill:var(--bg);stroke:var(--line)}
+.node.core{fill:var(--accent-soft);stroke:var(--accent)}
+.wire{stroke:var(--accent);stroke-width:1.4;fill:none;stroke-dasharray:4 5;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-18}}
+@media (prefers-reduced-motion:reduce){.wire{animation:none}}
+.diagram figcaption{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* Sections */
+section{padding-block:56px;border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:32px}
+.sec-head>*{min-width:0}
+.sec-head h2{font-size:30px;font-weight:700}
+.sec-head .label{margin-bottom:10px;display:block}
+
+/* What I do */
+.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 36px}
+.pillars h3{font-size:19px;font-weight:500;margin-bottom:6px}
+.pillars p{margin:0;color:var(--muted);font-size:16px}
+
+/* Projects */
+.projects{display:grid;gap:18px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:22px 24px}
+.proj.feature{border-color:var(--accent)}
+.proj-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.proj h3{font-size:21px;font-weight:700}
+.where{font:400 12px var(--f-mono);color:var(--muted)}
+.role{font:500 12px var(--f-mono);color:var(--signal);margin:6px 0 10px;letter-spacing:.04em}
+.proj p{margin:0 0 12px;max-width:62ch}
+.proj ul.pts{margin:0 0 14px;padding-left:18px;color:var(--muted);font-size:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0}
+.tags li{font:400 12px/1 var(--f-mono);padding:6px 8px;border-radius:3px;background:var(--accent-soft);color:var(--ink)}
+.metric{display:inline-flex;gap:6px;align-items:baseline;font:500 13px var(--f-mono);color:var(--accent);margin-bottom:10px}
+
+/* Earlier work log */
+.log{width:100%;border-collapse:collapse;font-size:15px}
+.log-wrap{overflow-x:auto;margin-top:26px}
+.log th{font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 12px 8px 0;border-bottom:1px solid var(--line)}
+.log td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.log td:first-child{font:400 13px var(--f-mono);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.log td:last-child{color:var(--muted)}
+
+/* Career */
+.career{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.career li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.career li>*{min-width:0}
+.career .when{font:400 13px var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}
+.career h3{font-size:18px;font-weight:500}
+.career p{margin:4px 0 0;color:var(--muted);font-size:16px}
+.career li.now .when{color:var(--accent)}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.skills h3{font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.skills ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:16px}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.contact div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 18px;min-width:0}
+.contact .v{font:500 15px var(--f-mono);word-break:break-word;margin-top:8px;display:block;user-select:all}
+footer{padding-block:32px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;gap:32px;padding-block:24px 40px}
+  .sec-head{grid-template-columns:1fr;gap:20px}
+  .pillars,.skills,.contact{grid-template-columns:1fr}
+  .career li{grid-template-columns:1fr;gap:4px}
+  nav{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#top">muzammal<b>.</b>hassan</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a><a href="#career">Career</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="top">
+    <div>
+      <span class="label">Solution Architect · Islamabad, Pakistan</span>
+      <h1 style="margin-top:14px">I connect telecom channels to the <span>systems behind them.</span></h1>
+      <p class="lede">Nine years designing and delivering self-care apps, dealer platforms, e-commerce and payment integrations for mobile operators in Pakistan, Azerbaijan, Iraq and Malaysia. I lead the architecture and the web teams that build it.</p>
+      <ul class="facts" aria-label="Highlights">
+        <li>9+ yrs at Evamp &amp; Saanga</li>
+        <li>6 operators served</li>
+        <li>4 countries</li>
+        <li>Head of Web Development</li>
+      </ul>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/muzamal-hassan" target="_blank" rel="noopener">LinkedIn profile</a>
+      </div>
+    </div>
+
+    <figure class="diagram" style="margin:0">
+      <svg viewBox="0 0 340 250" role="img" aria-label="Diagram: customer, dealer and web channels connect through an integration layer to BSS, payment and partner systems">
+        <text class="cap" x="10" y="16">CHANNELS</text>
+        <text class="cap" x="128" y="16">INTEGRATION</text>
+        <text class="cap" x="250" y="16">CORE</text>
+        <rect class="node" x="10" y="30" width="92" height="40" rx="5"/><text x="20" y="54">Self-care app</text>
+        <rect class="node" x="10" y="104" width="92" height="40" rx="5"/><text x="20" y="128">Dealer / DMP</text>
+        <rect class="node" x="10" y="178" width="92" height="40" rx="5"/><text x="20" y="202">eShop (React)</text>
+        <rect class="node core" x="128" y="70" width="96" height="110" rx="6"/>
+        <text x="140" y="98">API gateway</text><text x="140" y="122">Microservices</text><text x="140" y="146">Kafka events</text><text x="140" y="170">SFTP / batch</text>
+        <rect class="node" x="250" y="30" width="80" height="40" rx="5"/><text x="262" y="54">BSS / CRM</text>
+        <rect class="node" x="250" y="104" width="80" height="40" rx="5"/><text x="262" y="128">Payments</text>
+        <rect class="node" x="250" y="178" width="80" height="40" rx="5"/><text x="262" y="202">Commerce</text>
+        <path class="wire" d="M102 50 C116 50 114 90 128 90"/>
+        <path class="wire" d="M102 124 L128 124"/>
+        <path class="wire" d="M102 198 C116 198 114 160 128 160"/>
+        <path class="wire" d="M224 90 C238 90 236 50 250 50"/>
+        <path class="wire" d="M224 124 L250 124"/>
+        <path class="wire" d="M224 160 C238 160 236 198 250 198"/>
+        <text class="cap" x="10" y="242">The pattern behind most of my projects</text>
+      </svg>
+    </figure>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <div><span class="label">What I do</span><h2>Architecture that ships</h2></div>
+      <div class="pillars">
+        <div><h3>Solution architecture</h3><p>High-level designs, integration contracts and event models that clients sign off and engineering teams can build from.</p></div>
+        <div><h3>Telecom BSS integration</h3><p>Connecting digital channels to billing, CRM and provisioning: BSS triggers, SFTP feeds and Kafka event streams.</p></div>
+        <div><h3>Dealer &amp; commission platforms</h3><p>Dealer onboarding, retailer portals and incentive rules: instant and KPI-based commission, with clear handling for edge cases.</p></div>
+        <div><h3>Commerce &amp; payments</h3><p>Headless Magento 2 with React, plus payment gateway integrations such as Xendit and iPay88 for web and in-app checkout.</p></div>
+        <div><h3>Delivery leadership</h3><p>Leading web frontend and backend teams across concurrent client projects, change requests and go-lives.</p></div>
+        <div><h3>AI in engineering</h3><p>Rolling out AI-assisted development (Cursor) across the frontend team and reporting progress to the CTO.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head">
+      <div><span class="label">Selected work</span><h2>Recent projects</h2></div>
+      <div class="projects">
+        <article class="proj feature">
+          <div class="proj-top"><h3>Telecom Dealer Management &amp; Self-Care Ecosystem</h3><span class="where">MY · XOX / ONEXOX · in delivery</span></div>
+          <div class="role">SOLUTION ARCHITECT</div>
+          <p>A connected set of four products for a Malaysian mobile operator: a customer self-care app, a dealer (DMP) app, a retailer portal and an admin portal, all integrated with the operator's BSS.</p>
+          <ul class="pts">
+            <li>Designed BSS trigger flows and the Kafka event model behind dealer activity and incentives</li>
+            <li>Defined dealer recruitment and commission rules, instant and KPI-based</li>
+            <li>Led the web infrastructure switchover and WAF architecture for the self-care platform</li>
+            <li>Onsite architecture sessions with the client in Malaysia, August 2026</li>
+          </ul>
+          <ul class="tags"><li>BSS</li><li>Kafka</li><li>Microservices</li><li>Xendit</li><li>iPay88</li><li>WAF</li></ul>
+        </article>
+
+        <article class="proj feature">
+          <div class="proj-top"><h3>Bakcell eShop</h3><span class="where">AZ · Bakcell · live since Nov 2025</span></div>
+          <div class="role">SOLUTION ARCHITECT · TOOK IT LIVE</div>
+          <span class="metric">≈ 60 orders / month</span>
+          <p>A headless e-commerce platform selling mobile phones and accessories, paid in cash or on instalments. Magento 2 runs the catalogue and orders behind a React storefront.</p>
+          <ul class="pts">
+            <li>Architected the headless split between Magento 2 and React</li>
+            <li>Designed the instalment purchase flow alongside cash checkout</li>
+            <li>Owns ongoing support and change requests after launch</li>
+          </ul>
+          <ul class="tags"><li>Magento 2</li><li>React</li><li>Headless</li><li>REST APIs</li></ul>
+        </article>
+
+        <article class="proj">
+          <div class="proj-top"><h3>UPTCL Self-Care App</h3><span class="where">PK · PTCL &amp; Ufone · Aug 2023 – present</span></div>
+          <p>One app for Ufone 4G subscribers and PTCL broadband and fiber customers to manage their SIMs, connections and profiles.</p>
+          <ul class="tags"><li>Self-care</li><li>Telecom</li><li>Mobile backend</li></ul>
+        </article>
+
+        <article class="proj">
+          <div class="proj-top"><h3>SIMOSA (Jazz World App)</h3><span class="where">PK · Jazz · Nov 2019 – Mar 2022</span></div>
+          <p>Jazz's self-care app, later opened up so users on any network could manage their telecom services in one place.</p>
+          <ul class="tags"><li>Self-care</li><li>Telecom</li><li>Microservices</li></ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="log-wrap">
+      <table class="log">
+        <thead><tr><th>Period</th><th>Project</th><th>Client</th><th>Stack</th></tr></thead>
+        <tbody>
+          <tr><td>2018 – 2019</td><td>Jazz Business World Portal</td><td>Jazz, Pakistan</td><td>Camunda BPM, SQL</td></tr>
+          <tr><td>2018 – 2019</td><td>Bakcell Azerbaijan</td><td>Bakcell, Azerbaijan</td><td>Magento, SQL</td></tr>
+          <tr><td>2018</td><td>Telenor Pakistan</td><td>Telenor, Pakistan</td><td>Magento, SQL</td></tr>
+          <tr><td>2017</td><td>Korek Telecom</td><td>Korek, Iraq</td><td>Magento, SQL</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="career">
+    <div class="sec-head">
+      <div><span class="label">Career</span><h2>Evamp &amp; Saanga</h2><p style="color:var(--muted);margin:10px 0 0;font-size:15px">Islamabad · Apr 2017 – present</p></div>
+      <ol class="career">
+        <li class="now"><span class="when">Dec 2025 – now</span><div><h3>Head of Web Development</h3><p>Leads web delivery and solution architecture across telecom and e-commerce clients.</p></div></li>
+        <li><span class="when">2023 – 2025</span><div><h3>Manager, Web Frontend &amp; Backend</h3><p>Promoted to manage multiple teams and concurrent client projects.</p></div></li>
+        <li><span class="when">2020 – 2023</span><div><h3>Team Lead, TEC / Magento</h3><p>Led the Magento team and acted as solution architect on Magento 2 in a microservices architecture, delivering many change requests.</p></div></li>
+        <li><span class="when">2019 – 2020</span><div><h3>Software Engineer, TEC</h3><p>Built and enhanced highly available, real-time systems for operators' customers.</p></div></li>
+        <li><span class="when">2017 – 2019</span><div><h3>Magento E-Commerce Developer</h3><p>E-commerce sites and mobile REST web services.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <div><span class="label">Toolkit</span><h2>Skills</h2></div>
+      <div class="skills">
+        <div><h3>Architecture</h3><ul><li>Solution &amp; integration design</li><li>Microservices</li><li>Event-driven (Kafka)</li><li>API design (REST)</li><li>SFTP / batch integration</li><li>WAF &amp; cloud migration</li></ul></div>
+        <div><h3>Platforms</h3><ul><li>Telecom BSS / CRM</li><li>Magento 2 / Adobe Commerce</li><li>React</li><li>PHP</li><li>Camunda BPM</li><li>SQL</li></ul></div>
+        <div><h3>Delivery</h3><ul><li>Team leadership</li><li>Client &amp; CTO communication</li><li>BRDs &amp; HLDs</li><li>Payment integrations</li><li>AI-assisted development</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head">
+      <div><span class="label">Contact</span><h2>Let's talk</h2><p style="color:var(--muted);margin:10px 0 0;font-size:15px">Open to Solution Architect roles in Pakistan, the UAE, Saudi Arabia and Malaysia.</p></div>
+      <div class="contact">
+        <div><span class="label">Email</span><span class="v">muzamal.hassan6@gmail.com</span></div>
+        <div><span class="label">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/muzamal-hassan" target="_blank" rel="noopener">in/muzamal-hassan</a></div>
+        <div><span class="label">Based in</span><span class="v">Islamabad, Pakistan</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Muzammal Hassan · Education: COMSATS University</footer>
+</div>
+</body>
+</html>
